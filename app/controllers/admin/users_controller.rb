@@ -29,6 +29,16 @@ class Admin::UsersController < Admin::BaseController
 
   end
 
+  def destroy
+    if @user == current_user
+      flash[:alert] = "You cannot delete yourself!"
+    else
+      @user.destroy
+      flash[:notice] = "User has been deleted."
+    end
+    redirect_to admin_users_path
+  end
+
   def update
     if params[:user][:password]
       params[:user].delete(:password)
