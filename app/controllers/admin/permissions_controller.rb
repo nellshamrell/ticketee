@@ -1,10 +1,10 @@
 class Admin::PermissionsController < Admin::BaseController
   before_filter :find_user
-
-  def index
-    @ability = Ability.new(@user)
+    
+  def index  
+    @ability = Ability.new(@user)          
     @projects = Project.all
-  end
+  end 
 
   def update
     @user.permissions.clear
@@ -12,17 +12,16 @@ class Admin::PermissionsController < Admin::BaseController
       project = Project.find(id)
       permissions.each do |permission, checked|
         Permission.create!(:user => @user,
-                           :thing => project,
-                           :action => permission)
+                            :thing => project,
+                            :action => permission)
       end
     end
-    flash[:notice] = "Permissions Updated"
+    flash[:notice] = "Permissions updated."
     redirect_to admin_user_permissions_path
   end
-
-
+  
   private
-    def find_user
+    def find_user    
       @user = User.find(params[:user_id])
     end
 end
