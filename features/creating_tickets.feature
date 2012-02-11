@@ -35,6 +35,7 @@ Scenario: Description must be longer that 10 characters
   Then I should see "Ticket has not been created"
   And I should see "Description is too short"
 
+@javascript
 Scenario: Creating a ticket with an attachment
     When I fill in "Title" with "Add documentation for blink tag"
     And I fill in "Description" with "The blink tag has an undocumented speed attribute"
