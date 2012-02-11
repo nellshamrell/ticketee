@@ -8,6 +8,7 @@ class TicketsController < ApplicationController
   before_filter :authorize_create!, :only => [:new, :create]
   def new
     @ticket = @project.tickets.build
+    3.times { @ticket.assets.build }
   end
 
   def show
