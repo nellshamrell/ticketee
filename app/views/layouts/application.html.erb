@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ticketee</title>
+  <title><%= title %></title>
   <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "projects" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% flash.each do |key, value| %>
-  <div class='flash' id='<%= key %>'>
-    <%= value %>
-  </div>
-<% end %>
-<title> <%= @title || "Ticketee" %> </title>
+  <% flash.each do |key, value| %>
+    <div class='flash' id='<%= key %>'>
+      <%= value %>
+    </div>
+  <% end %>
 <h1><%= link_to "Ticketee", root_path %></h1>
 <nav>
+  <%= admins_only do %>
+    <%= link_to "Admin", admin_root_path %><br>
+  <% end %>
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %>
     <%= link_to "Sign in", new_user_session_path %>

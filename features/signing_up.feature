@@ -11,5 +11,3 @@ Feature: Signing up
     And I fill in "Password confirmation" with "password" 
     And I press "Sign up"
     Then I should see "You have signed up successfully."
-
-
