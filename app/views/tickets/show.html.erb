@@ -1,5 +1,6 @@
 <div id='ticket'>
   <h2><%= @ticket.title %></h2>
+  
   <%= authorized?("edit tickets", @project) do %>
     <%= link_to "Edit Ticket", [:edit, @project, @ticket] %>
   <% end %>
@@ -11,6 +12,7 @@
                 :confirm => "Are you sure you want to delete this ticket?" %>
   <% end %>
 
-  <br><small>Created by <%= @ticket.user.email %></small>
+  <%= debug @ticket.user %>
+  <small>Created by <%= @ticket.user.email %></small>
   <%= simple_format(@ticket.description) %>
 </div>

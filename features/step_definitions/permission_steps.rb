@@ -1,4 +1,4 @@
-permission_step = /^"([^"]*)" can ([^"]*?) ([o|i]n)?\s?the "([^"]*)" project$/
+permission_step = /^"([^"]*)" can ([^"]*?) ([o|i]n)?\s?the "([^"]*)" project/
 Given permission_step do |user, permission, on, project|
   create_permission(user, find_project(project), permission)
 end
@@ -19,6 +19,3 @@ end
 def find_project(name)
   Project.find_by_name!(name)
 end
-
-
-

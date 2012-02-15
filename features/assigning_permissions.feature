@@ -29,7 +29,7 @@ Feature: Assigning permissions
 
     Given I am signed in as "user@ticketee.com"
     Then I should see "TextMate 2"
-
+    
   Scenario: Creating tickets for a project
     When I check "View" for "TextMate 2"
     When I check "Create tickets" for "TextMate 2"
@@ -43,7 +43,7 @@ Feature: Assigning permissions
     And I fill in "Description" with "Make it so!"
     And I press "Create"
     Then I should see "Ticket has been created."
-
+    
   Scenario: Updating a ticket for a project
     When I check "View" for "TextMate 2"
     And I check "Edit tickets" for "TextMate 2"

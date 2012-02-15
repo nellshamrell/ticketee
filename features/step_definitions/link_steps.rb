@@ -6,5 +6,4 @@ end
 Then /^I should not see the "([^\"]*)" link$/ do |text|
   page.should_not(have_css("a", :text => text),
     "Expected to not see the #{text.inspect} link, but did.")
-end 
-
+end

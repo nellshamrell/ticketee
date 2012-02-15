@@ -1,4 +1,4 @@
-  Feature: Creating Users
+Feature: Creating Users
   In order to add new users to the system
   As an admin
   I want to be able to add them through the backend
@@ -25,11 +25,11 @@
    And I press "Create User"
    Then I should see "User has not been created."
    And I should see "Email can't be blank"
-
-Scenario: Creating an admin user
-  When I fill in "Email" with "newadmin@ticketee.com"
-  And I fill in "Password" with "password"
-  And I check "Is an admin?"
-  And I press "Create User"
-  Then I should see "User has been created"
-  And I should see "newadmin@ticketee.com (Admin)"
+   
+ Scenario: Creating an admin user
+   When I fill in "Email" with "newadmin@ticketee.com"
+   And I fill in "Password" with "password"
+   And I check "Is an admin?"
+   And I press "Create User"
+   Then I should see "User has been created"
+   And I should see "newadmin@ticketee.com (Admin)"
