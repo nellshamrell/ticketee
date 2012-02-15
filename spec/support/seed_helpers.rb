@@ -6,6 +6,6 @@ module SeedHelpers
   end
 end
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.include SeedHelpers
 end
