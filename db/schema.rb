@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209031415) do
+ActiveRecord::Schema.define(:version => 20120217032253) do
+
+  create_table "assets", :force => true do |t|
+    t.string   "asset_file_name"
+    t.integer  "asset_file_size"
+    t.string   "asset_content_type"
+    t.datetime "asset_updated_at"
+    t.integer  "ticket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "text"
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "state_id"
+    t.integer  "previous_state_id"
+  end
 
   create_table "permissions", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +48,12 @@ ActiveRecord::Schema.define(:version => 20120209031415) do
     t.datetime "updated_at"
   end
 
+  create_table "states", :force => true do |t|
+    t.string "name"
+    t.string "color"
+    t.string "background"
+  end
+
   create_table "tickets", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -35,9 +61,15 @@ ActiveRecord::Schema.define(:version => 20120209031415) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "state_id"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
   end
 
   add_index "tickets", ["project_id"], :name => "index_tickets_on_project_id"
+  add_index "tickets", ["state_id"], :name => "index_tickets_on_state_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false
