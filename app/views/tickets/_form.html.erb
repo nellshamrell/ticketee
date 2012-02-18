@@ -10,7 +10,7 @@
   </p>
   <% number = 0 %>
   <div id='files'>
-    <%= f.fields_for :assets, :child_index => number do |asset| %>
+    <%= f.fields_for :assets do |asset| %>
       <p>
         <%= asset.label :asset, "File ##{number += 1}" %>
         <%= asset.file_field :asset %>
