@@ -16,6 +16,8 @@ Ticketee::Application.routes.draw do
       resources :permissions
     end
   end
+ 
+  resources :files
 
   devise_for :users, :controllers => { 
     :registrations => "registrations",
