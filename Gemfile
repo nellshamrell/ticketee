@@ -40,7 +40,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'email_spec'
-  gem 'capybara-webkit'
+  gem 'launchy'
 end
 
 gem 'devise', '~> 1.4.3'

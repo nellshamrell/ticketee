@@ -19,6 +19,14 @@ Ticketee::Application.routes.draw do
  
   resources :files
 
+  resources :projects do
+    resources :tickets
+  end
+
+  resources :tickets do
+    resources :comments
+  end
+
   devise_for :users, :controllers => { 
     :registrations => "registrations",
   }
