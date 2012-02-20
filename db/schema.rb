@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219221441) do
+ActiveRecord::Schema.define(:version => 20120219225030) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120219221441) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "state_id"
   end
 
   create_table "permissions", :force => true do |t|
