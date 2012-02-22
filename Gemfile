@@ -31,6 +31,7 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.5'
+  gem 'capybara-webkit'
 end
 
 group :test do
@@ -39,6 +40,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'email_spec'
+  gem 'launchy'
 end
 
 gem 'devise', '~> 1.4.3'

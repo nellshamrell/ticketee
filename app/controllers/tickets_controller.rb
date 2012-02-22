@@ -11,12 +11,13 @@ class TicketsController < ApplicationController
   
   def new
     @ticket = @project.tickets.build
-    3.times { @ticket.assets.build }
+    @ticket.assets.build 
   end
   
   def create
     @ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
     if @ticket.save
+      @ticket.tag!(params[:tags])
       flash[:notice] = "Ticket has been created."
       redirect_to [@project, @ticket]
     else
@@ -26,7 +27,8 @@ class TicketsController < ApplicationController
   end
   
   def show
-    
+    @comment = @ticket.comments.build
+    @states = State.all
   end
   
   def edit

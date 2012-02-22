@@ -3,8 +3,8 @@
 <% end %>
 
 <h2>Projects</h2> 
-<ul>
-  <% @projects.each do |project| %>
+<ul id='projects'>
+  <% for project in @projects %>
     <li><%= link_to project.name, project %></li>
   <% end %>
 </ul>
