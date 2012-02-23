@@ -43,3 +43,7 @@ Feature: Creating comments
   Scenario: A user without permission cannot change the state
     When I follow "Change a ticket's state"
     Then I should not see the "#comment_state_id" element
+
+  Scenario: A goof named Kelsey adds unauthorized code.
+    When Nell reads it
+    Then she should delete it.
