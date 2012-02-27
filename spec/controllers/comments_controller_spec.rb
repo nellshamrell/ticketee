@@ -18,7 +18,8 @@ describe CommentsController do
     end
 
     it "cannot transition a state by passing through state_id" do
-      post :create,{ :comment => { :text => "Hacked!",
+      post :create,{ :comment => { :tags => "",
+                                   :text => "Hacked!",
                                    :state_id => state.id },
                      :ticket_id => ticket.id }
       ticket.reload
