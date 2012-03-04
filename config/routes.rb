@@ -11,6 +11,10 @@ Ticketee::Application.routes.draw do
       collection do
         get :search
       end
+
+      member do
+        post :watch 
+      end
     end
   end
   
@@ -27,10 +31,6 @@ Ticketee::Application.routes.draw do
   end
  
   resources :files
-
-  resources :projects do
-    resources :tickets
-  end
 
   resources :tickets do
     resources :comments
