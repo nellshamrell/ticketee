@@ -10,10 +10,10 @@ Feature: Ticket Notifications
     Given there is a project called "TextMate 2"
     And "alice@ticketee.com" can view the "TextMate 2" project
     And "bob@ticketee.com" can view the "TextMate 2" project
-    And "alice@ticketee.com" has created a ticket for this project
+    And "alice@ticketee.com" has created a ticket for this project:
       | title        | description        |
       | Release date | TBA very shortly.  |
-    Given I am signed on as "bob@ticketee.com"
+    Given I am signed in as "bob@ticketee.com"
     Given I am on the homepage
 
   Scenario: Ticket owner is automatically subscribed to a ticket
@@ -30,6 +30,7 @@ Feature: Ticket Notifications
 
     Then "alice@ticketee.com" should receive an email
     When "alice@ticketee.com" opens the email
+    Then save and open current email
     Then they should see "updated the Release date ticket" in the email body
     And they should see "[ticketee] TextMate 2 - Release date" in the email subject
     Then they click the first link in the email
